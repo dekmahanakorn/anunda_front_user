@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="Hello" datatype="html">
+        <!-- <source>Hello1</source> -->
+        <target state="en">GG</target>
+        <!-- <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group> -->
+      </trans-unit>
+
+      <trans-unit id="TEST" datatype="html">
+        <target state="th">TEST</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
