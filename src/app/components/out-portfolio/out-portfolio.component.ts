@@ -10,7 +10,7 @@ import { DatabaseService } from '../services/database.service';
 export class OutPortfolioComponent implements OnInit {
 
   private product: Product;
-  private productList: Product[];
+  private productList: Product[] = new Array(4);
 
   constructor(private databaseService: DatabaseService) { }
 
@@ -25,6 +25,10 @@ export class OutPortfolioComponent implements OnInit {
           ...item.payload.doc.data()
         } as Product;
       });
+      //test
+      for (var i = 0; i < this.productList.length; i++) {
+        console.log("product---->" + this.productList[i].image_url)
+      }
     });
   }
 }
