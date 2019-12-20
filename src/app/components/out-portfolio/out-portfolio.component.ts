@@ -10,7 +10,7 @@ import { DatabaseService } from '../services/database.service';
 export class OutPortfolioComponent implements OnInit {
 
   private product: Product;
-  private productList: Product[];
+  private productList: Product[] = new Array(4);
 
   constructor(private databaseService: DatabaseService) { }
 
@@ -18,7 +18,7 @@ export class OutPortfolioComponent implements OnInit {
     this.getProductOwner();
   }
   getProductOwner() {
-    this.databaseService.getData('product').subscribe(actionArray => {
+    this.databaseService.getData('product-solution').subscribe(actionArray => {
       this.productList = actionArray.map(item => {
         return {
           id: item.payload.doc.id,
