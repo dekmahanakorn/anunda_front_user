@@ -9,7 +9,17 @@ import { Category } from 'src/app/components/model/category.model';
 })
 export class ServiceComponent implements OnInit {
 
+  /* public listIcon = [{
+    icon_code: "fa fa-bar-chart fa-spin",
+  }, {
+    icon_code: "fa fa-bar-chart fa-spin",
+  }, {
+    icon_code: "fa fa-bar-chart fa-spin",
+  }, {
+    icon_code: "fa fa-bar-chart fa-spin",
+  }]; */
   listCate: Category[];
+
 
   constructor(private service: DatabaseService) { }
 
