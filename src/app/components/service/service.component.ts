@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabaseService } from 'src/app/components/services/database.service';
+import { Category } from 'src/app/components/model/category.model';
 
 @Component({
   selector: 'app-service',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServiceComponent implements OnInit {
 
-  constructor() { }
+  listCate: Category[];
+
+  constructor(private service: DatabaseService) { }
 
   ngOnInit() {
+
+    this.getData();
   }
+
+
+  getData() {
+    this.service.getData('category').subscribe(actionArray => {
+      this.listCate = actionArray.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        } as Category;
+      })
+    })
+  }
+
+
 
 }
