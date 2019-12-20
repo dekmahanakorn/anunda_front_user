@@ -18,17 +18,13 @@ export class OutPortfolioComponent implements OnInit {
     this.getProductOwner();
   }
   getProductOwner() {
-    this.databaseService.getData('product').subscribe(actionArray => {
+    this.databaseService.getData('product-solution').subscribe(actionArray => {
       this.productList = actionArray.map(item => {
         return {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         } as Product;
       });
-      //test
-      for (var i = 0; i < this.productList.length; i++) {
-        console.log("product---->" + this.productList[i].image_url)
-      }
     });
   }
 }
