@@ -9,8 +9,8 @@ import { DatabaseService } from '../services/database.service';
 })
 export class IntroComponent implements OnInit {
 
-  private profile: IntroProfile;
-  private profileList: IntroProfile[];
+  public profile: IntroProfile;
+  public profileList: IntroProfile[];
 
   constructor(private databaseService: DatabaseService) { }
 

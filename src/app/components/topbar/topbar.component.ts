@@ -9,8 +9,8 @@ import { contact } from '../model/contact.model';
 })
 export class TopbarComponent implements OnInit {
 
-  private contact: contact;
-  private contactList: contact[];
+  public contact: contact;
+  public contactList: contact[];
 
   constructor(private databaseService: DatabaseService) { }
 

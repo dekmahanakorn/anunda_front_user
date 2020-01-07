@@ -9,8 +9,8 @@ import { DatabaseService } from '../services/database.service';
 })
 export class OutPortfolioComponent implements OnInit {
 
-  private product: Product;
-  private productList: Product[] = new Array(4);
+  public product: Product;
+  public productList: Product[] = new Array(4);
 
   constructor(private databaseService: DatabaseService) { }
 

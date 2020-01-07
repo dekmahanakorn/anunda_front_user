@@ -9,8 +9,8 @@ import { DatabaseService } from '../services/database.service';
 })
 export class AboutComponent implements OnInit {
 
-  private about: about;
-  private aboutList: about[];
+  public about: about;
+  public aboutList: about[];
 
   constructor(private databaseService: DatabaseService) { }
 
