@@ -9,7 +9,7 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { HeaderComponent } from './header/header.component';
 import { IntroComponent } from './intro/intro.component';
 import { AboutComponent } from './about/about.component';
-import { ServiceComponent } from './product/service.component';
+import { ServiceComponent } from './service/service.component';
 import { ClientsComponent } from './clients/clients.component';
 import { OutPortfolioComponent } from './out-portfolio/out-portfolio.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
