@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from 'src/app/components/services/database.service';
 import { Category } from 'src/app/components/model/category.model';
+import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-service',
@@ -9,33 +11,53 @@ import { Category } from 'src/app/components/model/category.model';
 })
 export class ServiceComponent implements OnInit {
 
-  /* public listIcon = [{
-    icon_code: "fa fa-bar-chart fa-spin",
-  }, {
-    icon_code: "fa fa-bar-chart fa-spin",
-  }, {
-    icon_code: "fa fa-bar-chart fa-spin",
-  }, {
-    icon_code: "fa fa-bar-chart fa-spin",
-  }]; */
-  listCate: Category[];
+  listCate: Array<Category> = [];
+  dataCate: any
 
 
-  constructor(private service: DatabaseService) { }
+  constructor(private service: DatabaseService,
+    private router: Router,
+    private firestore: AngularFirestore) { }
 
   ngOnInit() {
+    this.getCategory();
 
-    this.getData();
+    /*   this.getData(); */
   }
+  /*   link() { 
+    this.router.navigate(['/cate-iot']);
+  } */
 
+  getCategory() {
+    var inner = this;
+    this.firestore.collection("category").get().subscribe(function (query) {
+      query.forEach(function (doc) {
 
-  getData() {
-    this.service.getData('category').subscribe(actionArray => {
-      this.listCate = actionArray.map(item => {
-        return {
-          id: item.payload.doc.id,
-          ...item.payload.doc.data()
-        } as Category;
+        if (doc.data().Name == 'RF & Microwave product') {
+          inner.dataCate = Object.assign({}, doc.data());
+          inner.dataCate.link = '/cate-iot';
+          inner.listCate.push(inner.dataCate);
+
+        }
+        if (doc.data().Name == 'IoT') {
+          inner.dataCate = Object.assign({}, doc.data());
+          inner.dataCate.link = '/cate-iot';
+          inner.listCate.push(inner.dataCate);
+
+        }
+        if (doc.data().Name == 'Kiosk & Vending machine') {
+          inner.dataCate = Object.assign({}, doc.data());
+          inner.dataCate.link = '/cate-iot';
+          inner.listCate.push(inner.dataCate);
+
+        }
+        if (doc.data().Name == 'RF Passive product') {
+          inner.dataCate = Object.assign({}, doc.data());
+          inner.dataCate.link = '/cate-iot';
+          inner.listCate.push(inner.dataCate);
+
+        }
+
       })
     })
   }
