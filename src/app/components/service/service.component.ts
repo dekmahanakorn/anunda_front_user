@@ -35,7 +35,7 @@ export class ServiceComponent implements OnInit {
 
         if (doc.data().Name == 'RF & Microwave product') {
           inner.dataCate = Object.assign({}, doc.data());
-          inner.dataCate.link = '/cate-iot';
+          inner.dataCate.link = '/cate-rf-microwave';
           inner.listCate.push(inner.dataCate);
 
         }
@@ -47,13 +47,13 @@ export class ServiceComponent implements OnInit {
         }
         if (doc.data().Name == 'Kiosk & Vending machine') {
           inner.dataCate = Object.assign({}, doc.data());
-          inner.dataCate.link = '/cate-iot';
+          inner.dataCate.link = '/cate-kiosk';
           inner.listCate.push(inner.dataCate);
 
         }
         if (doc.data().Name == 'RF Passive product') {
           inner.dataCate = Object.assign({}, doc.data());
-          inner.dataCate.link = '/cate-iot';
+          inner.dataCate.link = '/cate-rf-passive';
           inner.listCate.push(inner.dataCate);
 
         }
