@@ -17,6 +17,9 @@ import { CallToActionComponent } from './call-to-action/call-to-action.component
 import { OurTeamComponent } from './our-team/our-team.component';
 import { ContactComponent } from './contact/contact.component';
 import { CateIotComponent } from './cate-iot/cate-iot.component';
+import { CateRfMicrowaveComponent } from './cate-rf-microwave/cate-rf-microwave.component';
+import { CateKioskComponent } from './cate-kiosk/cate-kiosk.component';
+import { CateRfPassiveComponent } from './cate-rf-passive/cate-rf-passive.component';
 
 @NgModule({
     imports: [
@@ -39,6 +42,9 @@ import { CateIotComponent } from './cate-iot/cate-iot.component';
         OurTeamComponent,
         ContactComponent,
         CateIotComponent,
+        CateRfMicrowaveComponent,
+        CateKioskComponent,
+        CateRfPassiveComponent,
     ],
     exports: [ComponentsComponent]
 })
