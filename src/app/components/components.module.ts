@@ -20,6 +20,7 @@ import { CateIotComponent } from './cate-iot/cate-iot.component';
 import { CateRfMicrowaveComponent } from './cate-rf-microwave/cate-rf-microwave.component';
 import { CateKioskComponent } from './cate-kiosk/cate-kiosk.component';
 import { CateRfPassiveComponent } from './cate-rf-passive/cate-rf-passive.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
     imports: [
@@ -45,6 +46,7 @@ import { CateRfPassiveComponent } from './cate-rf-passive/cate-rf-passive.compon
         CateRfMicrowaveComponent,
         CateKioskComponent,
         CateRfPassiveComponent,
+        ProductDetailComponent,
     ],
     exports: [ComponentsComponent]
 })
