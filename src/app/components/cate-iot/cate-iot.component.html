@@ -42,18 +42,18 @@
     </div>
 </div> -->
 
-    <div class="jumbotron subhead" style="background-color: #F6DDCC;">
-      <div class="container">
+<div class="jumbotron subhead" style="background-color: #F6DDCC;">
+    <div class="container">
         <div class="row">
-          <div class="span12">
-              <h2>{{dataCate.Name}}</h2>
-              <p style="font-size: 110%;">
-                {{dataCate.Detail}}
-              </p>
+            <div class="span12">
+                <h2>{{dataCate.Name}}</h2>
+                <p style="font-size: 110%;">
+                    {{dataCate.Detail}}
+                </p>
             </div>
         </div>
-      </div>
     </div>
+</div>
 
 
 <section id="portfolio">
@@ -66,11 +66,21 @@
                         <div class="portfolio-overlay overlay">
                             <div class="portfolio-info">
                                 <h2>{{data.name}}</h2>
-                                <!-- <a class="info" data-toggle="modal" data-target="#exampleModal">link detail</a> -->
-                                <button type="button" class="btn btn-outline-light" data-toggle="modal"
+                                <!--   <button type="button" class="btn btn-outline-light" data-toggle="modal"
                                     data-target="#exampleModal" (click)="modal(data)">
                                     Link detail
-                                </button>
+                                </button> -->
+
+                                <span class="col-md-11">
+                                    <a (click)="linkDetail()(data.id)">
+                                        <i class="fa fa-external-link fa-3x"></i>
+                                    </a></span>
+
+                                <span class="col-md-11">
+                                    <a data-toggle="modal" data-target="#exampleModal" (click)="modal(data)">
+                                        <i class="fa fa-search fa-3x"></i>
+                                    </a></span>
+
                             </div>
                         </div>
                     </div>
@@ -103,31 +113,6 @@
             </div>
             <div class="modal-body">
                 <img src="{{dataModel.image_url}}" class="img-fluid" alt="..."><br><br>
-
-                <table class="table table-striped table-dark">
-                    <tbody>
-                        <tr>
-                            <th scope="row">Name : </th>
-                            <td>{{dataModel.name}}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Price : </th>
-                            <td>{{dataModel.Price}}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Size : </th>
-                            <td>{{dataModel.Size}}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Description : </th>
-                            <td>{{dataModel.Description}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
