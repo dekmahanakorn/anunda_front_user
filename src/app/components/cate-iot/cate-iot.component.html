@@ -10,9 +10,7 @@
     </div>
 </header><!-- #header -->
 <!--====================================================================================================================-->
-<br><br><br><br>
-
-<div class="container">
+<!-- <div class="container">
     <table class="table">
         <thead>
             <tr>
@@ -36,14 +34,106 @@
         </tbody>
     </table>
 
-
     <div class="text-center">
         <button class="btn btn btn-info btn-sm float-left" (click)="prevPage()"
             [disabled]="disable_prev || !(pagination_clicked_count>0)">Previous</button> <b>Page no:
             {{pagination_clicked_count+1}}</b>
         <button class="btn btn btn-info btn-sm float-right" (click)="nextPage()" [disabled]="disable_next">Next</button>
     </div>
+</div> -->
+
+    <div class="jumbotron subhead" style="background-color: #F6DDCC;">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+              <h2>{{dataCate.Name}}</h2>
+              <p style="font-size: 110%;">
+                {{dataCate.Detail}}
+              </p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+<section id="portfolio">
+    <div class="container">
+        <div class="container-fluid">
+            <div class="row no-gutters">
+                <div class="col-lg-4 col-md-6 mb-4" *ngFor="let data of tableData">
+                    <div class="portfolio-item wow col-md-11 hovereffect">
+                        <img src="{{data.image_url}}" alt="">
+                        <div class="portfolio-overlay overlay">
+                            <div class="portfolio-info">
+                                <h2>{{data.name}}</h2>
+                                <!-- <a class="info" data-toggle="modal" data-target="#exampleModal">link detail</a> -->
+                                <button type="button" class="btn btn-outline-light" data-toggle="modal"
+                                    data-target="#exampleModal" (click)="modal(data)">
+                                    Link detail
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="text-center">
+            <button class="btn btn btn-info btn-sm float-left" (click)="prevPage()"
+                [disabled]="disable_prev || !(pagination_clicked_count>0)">Previous</button> <b>Page no:
+                {{pagination_clicked_count+1}}</b>
+            <button class="btn btn btn-info btn-sm float-right" (click)="nextPage()"
+                [disabled]="disable_next">Next</button>
+        </div>
+    </div>
+</section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{dataModel.name}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="{{dataModel.image_url}}" class="img-fluid" alt="..."><br><br>
+
+                <table class="table table-striped table-dark">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Name : </th>
+                            <td>{{dataModel.name}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Price : </th>
+                            <td>{{dataModel.Price}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Size : </th>
+                            <td>{{dataModel.Size}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Description : </th>
+                            <td>{{dataModel.Description}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 
 
 <br><br><br>
