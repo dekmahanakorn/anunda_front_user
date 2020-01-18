@@ -110,6 +110,7 @@ export class CateIotComponent implements OnInit {
         this.lastInResponse = response.docs[response.docs.length - 1];
         this.tableData = [];
         for (let item of response.docs) {
+          
           this.tableData.push(item.data());
         }
 
