@@ -21,6 +21,10 @@ import { CateRfMicrowaveComponent } from './cate-rf-microwave/cate-rf-microwave.
 import { CateKioskComponent } from './cate-kiosk/cate-kiosk.component';
 import { CateRfPassiveComponent } from './cate-rf-passive/cate-rf-passive.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OwlModule } from 'ngx-owl-carousel';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     imports: [
@@ -28,6 +32,10 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
         FormsModule,
         RouterModule,
         HttpClientModule,
+        NgbModule,
+        OwlModule,
+        CarouselModule,
+        BrowserAnimationsModule
     ],
     declarations: [
         ComponentsComponent,

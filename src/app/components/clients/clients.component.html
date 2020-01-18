@@ -1,22 +1,27 @@
 <section id="clients" class="wow fadeInUp">
-    <div class="container">
-      <div class="section-header">
-        <h2>Partners</h2>
-        <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim
-          export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export
-          irure minim illum fore</p>
-      </div>
-
-      <div class="owl-carousel clients-carousel">
-        <img src="img/clients/client-1.png" alt="">
-        <img src="img/clients/client-2.png" alt="">
-        <img src="img/clients/client-3.png" alt="">
-        <img src="img/clients/client-4.png" alt="">
-        <img src="img/clients/client-5.png" alt="">
-        <img src="img/clients/client-6.png" alt="">
-        <img src="img/clients/client-7.png" alt="">
-        <img src="img/clients/client-8.png" alt="">
-      </div>
-
+  <div class="container">
+    <div class="section-header">
+      <h2>CLIENTS</h2>
     </div>
-  </section><!-- #clients -->
+    <!-- clients-carousel -->
+    <!-- <div class="owl-carousel" *ngFor="let data of partnerList">
+      <img [src]="data.image_url" alt="">
+      <img src="img/clients/client-3.png" alt="">
+    </div> -->
+    <!-- <ngb-carousel>
+      <ng-template ngbSlide *ngFor="let data of partnerList;let i = index" id="slideId-{{i+1}}">
+        <img class="img-fluid" [src]="data.image_url">
+      </ng-template>
+    </ngb-carousel> -->
+
+    <!-- [options]="customOptions" -->
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let data of partnerList">
+        <ng-template carouselSlide [id]="data.id">
+          <img [src]="data.image_url">
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+
+  </div>
+</section><!-- #clients -->
