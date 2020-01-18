@@ -19,8 +19,13 @@ export class CateIotComponent implements OnInit {
   disable_prev: boolean = false;
 
 
+  dataModel: any
+  dataCate: any
+
+
   constructor(private firestore: AngularFirestore) {
     this.loadItems();
+    this.getCategory();
   }
 
   ngOnInit() {
@@ -28,7 +33,7 @@ export class CateIotComponent implements OnInit {
 
   loadItems() {
     this.firestore.collection('product', ref => ref
-      .limit(3)
+      .limit(6)
     ).snapshotChanges()
       .subscribe(response => {
         if (!response.length) {
@@ -62,7 +67,7 @@ export class CateIotComponent implements OnInit {
     this.firestore.collection('product', ref => ref
       .startAt(this.get_prev_startAt())
       .endBefore(this.firstInResponse)
-      .limit(3)
+      .limit(6)
     ).get()
       .subscribe(response => {
         this.firstInResponse = response.docs[0];
@@ -90,7 +95,7 @@ export class CateIotComponent implements OnInit {
   nextPage() {
     this.disable_next = true;
     this.firestore.collection('product', ref => ref
-      .limit(3)
+      .limit(6)
       .startAfter(this.lastInResponse)
     ).get()
       .subscribe(response => {
@@ -137,6 +142,19 @@ export class CateIotComponent implements OnInit {
   }
 
 
+  modal(data: any) {
+    this.dataModel = data;
+  }
+  getCategory() {
+    var inner = this;
+    this.firestore.collection("category").get().subscribe(function (query) {
+      query.forEach(function (doc) {
+        if (doc.data().Name == 'IoT') {
+          inner.dataCate = Object.assign({}, doc.data());
+        }
+      })
+    })
+  }
 
 
 }
