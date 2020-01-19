@@ -10,39 +10,8 @@
     </div>
 </header><!-- #header -->
 <!--====================================================================================================================-->
-<!-- <div class="container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Category ID</th>
-                <th>Description</th>
-                <th>Size</th>
-                <th>Price</th>
-                <th>Image url</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of tableData">
-                <td>{{item.name}}</td>
-                <td>{{item.category_id}}</td>
-                <td>{{item.Description}}</td>
-                <td>{{item.Size}}</td>
-                <td>{{item.Price}}</td>
-                <td>{{item.image_url}}</td>
-            </tr>
-        </tbody>
-    </table>
 
-    <div class="text-center">
-        <button class="btn btn btn-info btn-sm float-left" (click)="prevPage()"
-            [disabled]="disable_prev || !(pagination_clicked_count>0)">Previous</button> <b>Page no:
-            {{pagination_clicked_count+1}}</b>
-        <button class="btn btn btn-info btn-sm float-right" (click)="nextPage()" [disabled]="disable_next">Next</button>
-    </div>
-</div> -->
-
-<div class="jumbotron subhead" style="background-color: #F6DDCC;">
+<div class="jumbotron subhead" style="background-color: #F6DDCC;" *ngIf="dataCate">
     <div class="container">
         <div class="row">
             <div class="span12">
@@ -57,7 +26,7 @@
 
 
 <section id="portfolio">
-    <div class="container">
+    <div class="container" *ngIf="tableData">
         <div class="container-fluid">
             <div class="row no-gutters">
                 <div class="col-lg-4 col-md-6 mb-4" *ngFor="let data of tableData">
@@ -72,13 +41,13 @@
                                 </button> -->
 
                                 <span class="col-md-11">
-                                    <a (click)="linkDetail()(data.id)">
+                                    <a (click)="linkDetail(data.id)">
                                         <i class="fa fa-external-link fa-3x"></i>
                                     </a></span>
 
                                 <span class="col-md-11">
                                     <a data-toggle="modal" data-target="#exampleModal" (click)="modal(data)">
-                                        <i class="fa fa-search fa-3x"></i>
+                                        <i class="fa fa-search-plus fa-3x"></i>
                                     </a></span>
 
                             </div>
@@ -104,7 +73,7 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content" *ngIf="dataModel">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">{{dataModel.name}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">

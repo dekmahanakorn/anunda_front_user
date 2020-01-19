@@ -6,6 +6,7 @@ import { CateRfMicrowaveComponent } from './components/cate-rf-microwave/cate-rf
 import { CateRfPassiveComponent } from './components/cate-rf-passive/cate-rf-passive.component';
 import { CateKioskComponent } from './components/cate-kiosk/cate-kiosk.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { ProductSoDetailComponent } from './components/product-so-detail/product-so-detail.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'cate-rf-passive', component: CateRfPassiveComponent },
   { path: 'cate-kiosk', component: CateKioskComponent },
   { path: 'product-detail', component: ProductDetailComponent },
+  { path: 'product-so-detail', component: ProductSoDetailComponent },
 ];
 
 @NgModule({
