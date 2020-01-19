@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-
+import { DatabaseService } from 'src/app/components/services/database.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-cate-iot',
   templateUrl: './cate-iot.component.html',
@@ -18,21 +19,26 @@ export class CateIotComponent implements OnInit {
   disable_next: boolean = false;
   disable_prev: boolean = false;
 
-
+  categoryID: string
   dataModel: any
   dataCate: any
+  data: any
 
+  constructor(private firestore: AngularFirestore,
+    private serviceDatabase: DatabaseService,
+    private router: Router, ) {
 
-  constructor(private firestore: AngularFirestore) {
+  }
+
+  ngOnInit() {
+    this.categoryID = this.serviceDatabase.getCategory_ID();
     this.loadItems();
     this.getCategory();
   }
 
-  ngOnInit() {
-  }
-
   loadItems() {
     this.firestore.collection('product', ref => ref
+      .where("category_id", "==", this.categoryID)
       .limit(6)
     ).snapshotChanges()
       .subscribe(response => {
@@ -45,7 +51,9 @@ export class CateIotComponent implements OnInit {
 
         this.tableData = [];
         for (let item of response) {
-          this.tableData.push(item.payload.doc.data());
+          this.data = item.payload.doc.data()
+          this.data.id = item.payload.doc.id;
+          this.tableData.push(this.data);
         }
 
         console.log('tableData : ', this.tableData);
@@ -65,6 +73,7 @@ export class CateIotComponent implements OnInit {
   prevPage() {
     this.disable_prev = true;
     this.firestore.collection('product', ref => ref
+      .where("category_id", "==", this.categoryID)
       .startAt(this.get_prev_startAt())
       .endBefore(this.firstInResponse)
       .limit(6)
@@ -75,7 +84,9 @@ export class CateIotComponent implements OnInit {
 
         this.tableData = [];
         for (let item of response.docs) {
-          this.tableData.push(item.data());
+          this.data = item.data();
+          this.data.id = item.id;
+          this.tableData.push(this.data);
         }
 
         //Maintaing page no.
@@ -95,6 +106,7 @@ export class CateIotComponent implements OnInit {
   nextPage() {
     this.disable_next = true;
     this.firestore.collection('product', ref => ref
+      .where("category_id", "==", this.categoryID)
       .limit(6)
       .startAfter(this.lastInResponse)
     ).get()
@@ -110,8 +122,10 @@ export class CateIotComponent implements OnInit {
         this.lastInResponse = response.docs[response.docs.length - 1];
         this.tableData = [];
         for (let item of response.docs) {
-          
-          this.tableData.push(item.data());
+
+          this.data = item.data();
+          this.data.id = item.id;
+          this.tableData.push(this.data);
         }
 
         this.pagination_clicked_count++;
@@ -150,12 +164,16 @@ export class CateIotComponent implements OnInit {
     var inner = this;
     this.firestore.collection("category").get().subscribe(function (query) {
       query.forEach(function (doc) {
-        if (doc.data().Name == 'IoT') {
+        if (doc.id == inner.categoryID) {
           inner.dataCate = Object.assign({}, doc.data());
         }
       })
     })
   }
 
+  linkDetail(id: string) {
+    this.serviceDatabase.setProduct_ID(id);
+    this.router.navigate(['/product-detail']);
+  }
 
 }

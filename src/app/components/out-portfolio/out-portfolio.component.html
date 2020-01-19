@@ -1,29 +1,30 @@
 <section id="portfolio" class="wow fadeInUp">
-    <div class="container">
-      <div class="section-header">
-        <h2>Solutions</h2>
-        <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim
-          export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export
-          irure minim illum fore</p>
-      </div>
+  <div class="container">
+    <div class="section-header">
+      <h2>Solutions</h2>
+      <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim
+        export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export
+        irure minim illum fore</p>
     </div>
+  </div>
 
-    <div class="container-fluid">
-      <div class="row no-gutters">
+  <div class="container-fluid">
+    <div class="row no-gutters">
 
-        <div class="col-lg-3 col-md-4" *ngFor="let data of productList">
-          <div class="portfolio-item wow fadeInUp">
-            <!-- <a href="{{data.image_url}}" class="portfolio-popup"> -->
-              <img src="{{data.image_url}}" alt="">
-              <div class="portfolio-overlay">
-                <div class="portfolio-info">
-                  <h2 class="wow fadeInUp">{{data.name}}</h2>
-                </div>
-              </div>
-            <!-- </a> -->
+      <div class="col-lg-3 col-md-4" *ngFor="let data of tableData">
+        <div class="portfolio-item wow fadeInUp" *ngIf="data" (click)="setLink(data.id)">
+          <!-- <a href="{{data.image_url}}" class="portfolio-popup"> -->
+          <img src="{{data.image_url}}" alt="">
+          <div class="portfolio-overlay">
+            <div class="portfolio-info">
+              <h2 class="wow fadeInUp">{{data.name}}</h2>
+            </div>
           </div>
+          <!-- </a> -->
         </div>
       </div>
 
     </div>
-  </section><!-- #portfolio -->
+
+  </div>
+</section><!-- #portfolio -->

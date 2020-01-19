@@ -25,6 +25,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OwlModule } from 'ngx-owl-carousel';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductSoDetailComponent } from './product-so-detail/product-so-detail.component';
 
 @NgModule({
     imports: [
@@ -55,6 +56,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         CateKioskComponent,
         CateRfPassiveComponent,
         ProductDetailComponent,
+        ProductSoDetailComponent,
     ],
     exports: [ComponentsComponent]
 })
