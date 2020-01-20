@@ -23,6 +23,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ComponentsModule } from './components/components.module';
+// import { SendEmailComponent } from './components/send-email/send-email.component';
 
 registerLocaleData(localeTh, 'th');
 registerLocaleData(localeEn, 'en');
@@ -31,6 +32,7 @@ console.log("AddModule");
 @NgModule({
   declarations: [
     AppComponent,
+    // SendEmailComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -10,13 +10,13 @@ if (localStorage.getItem('locale') === null) {
   localStorage.setItem('locale', 'th');
   }
   console.log(`localStorage.getItem('locale')`,localStorage.getItem('locale'));
-  
+
   const locale = localStorage.getItem('locale');
   declare const require;
   const translations = require(`raw-loader!./locale/messages.${locale}.xlf`).default;
   // const translations = require('raw-loader!./i18n/messages.ko.xlf').default;
-  console.log('translations',translations);
-  
+  // console.log('translations',translations);
+
   if (environment.production) {
     enableProdMode();
   }

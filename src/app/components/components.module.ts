@@ -26,6 +26,7 @@ import { OwlModule } from 'ngx-owl-carousel';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductSoDetailComponent } from './product-so-detail/product-so-detail.component';
+import { SendEmailComponent } from './send-email/send-email.component';
 
 @NgModule({
     imports: [
@@ -57,6 +58,7 @@ import { ProductSoDetailComponent } from './product-so-detail/product-so-detail.
         CateRfPassiveComponent,
         ProductDetailComponent,
         ProductSoDetailComponent,
+        SendEmailComponent,
     ],
     exports: [ComponentsComponent]
 })
