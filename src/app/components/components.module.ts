@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormBuilder, Validators, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -26,6 +26,7 @@ import { OwlModule } from 'ngx-owl-carousel';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductSoDetailComponent } from './product-so-detail/product-so-detail.component';
+import { SendMessageComponent } from './contact/send-message/send-message.component';
 
 @NgModule({
     imports: [
@@ -36,7 +37,8 @@ import { ProductSoDetailComponent } from './product-so-detail/product-so-detail.
         NgbModule,
         OwlModule,
         CarouselModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        ReactiveFormsModule
     ],
     declarations: [
         ComponentsComponent,
@@ -57,6 +59,7 @@ import { ProductSoDetailComponent } from './product-so-detail/product-so-detail.
         CateRfPassiveComponent,
         ProductDetailComponent,
         ProductSoDetailComponent,
+        SendMessageComponent,
     ],
     exports: [ComponentsComponent]
 })
