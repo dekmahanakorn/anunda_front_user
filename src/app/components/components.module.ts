@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, FormBuilder, Validators, FormGroup, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, FormBuilder, Validators, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -27,41 +27,43 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductSoDetailComponent } from './product-so-detail/product-so-detail.component';
 import { SendMessageComponent } from './contact/send-message/send-message.component';
-
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        RouterModule,
-        HttpClientModule,
-        NgbModule,
-        OwlModule,
-        CarouselModule,
-        BrowserAnimationsModule,
-        ReactiveFormsModule
-    ],
-    declarations: [
-        ComponentsComponent,
-        TopbarComponent,
-        HeaderComponent,
-        IntroComponent,
-        AboutComponent,
-        ServiceComponent,
-        ClientsComponent,
-        OutPortfolioComponent,
-        TestimonialsComponent,
-        CallToActionComponent,
-        OurTeamComponent,
-        ContactComponent,
-        CateIotComponent,
-        CateRfMicrowaveComponent,
-        CateKioskComponent,
-        CateRfPassiveComponent,
-        ProductDetailComponent,
-        ProductSoDetailComponent,
-        SendMessageComponent,
-    ],
-    exports: [ComponentsComponent]
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    HttpClientModule,
+    NgbModule,
+    OwlModule,
+    CarouselModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+
+  ],
+  declarations: [
+    ComponentsComponent,
+    TopbarComponent,
+    HeaderComponent,
+    IntroComponent,
+    AboutComponent,
+    ServiceComponent,
+    ClientsComponent,
+    OutPortfolioComponent,
+    TestimonialsComponent,
+    CallToActionComponent,
+    OurTeamComponent,
+    ContactComponent,
+    CateIotComponent,
+    CateRfMicrowaveComponent,
+    CateKioskComponent,
+    CateRfPassiveComponent,
+    ProductDetailComponent,
+    ProductSoDetailComponent,
+    SendMessageComponent,
+  ],
+  exports: [ComponentsComponent]
 })
 export class ComponentsModule { }
 
