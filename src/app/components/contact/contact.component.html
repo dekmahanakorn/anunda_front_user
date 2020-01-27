@@ -1,6 +1,20 @@
-<section id="contact" class="wow fadeInUp">
+<!--======= Header =======-->
+<header id="header">
   <div class="container">
-    <div class="section-header">
+      <div id="logo" class="pull-left">
+          <h1><a [routerLink]="['/index']" class="scrollto">Anunda <span>Technology</span></a></h1>
+      </div>
+      <div class="pull-right">
+          <app-topbar></app-topbar>
+      </div>
+  </div>
+</header><!-- #header -->
+<!--====================================================================================================================-->
+
+<!-- <section id="contact" class="wow fadeInUp"> -->
+  <div class="jumbotron subhead" style="background-color: #F6DDCC;">
+  <div class="container">
+    <div class="span12">
       <h2>Contact Us</h2>
     </div>
     <div *ngFor="let item of contactList">
@@ -8,7 +22,7 @@
       {{item.address2}}
       {{item.tel}}
 
-      <div class="row contact-info">
+      <!-- <div class="row contact-info">
 
         <div class="col-md-4">
           <div class="contact-address">
@@ -36,9 +50,10 @@
           </div>
         </div>
 
-      </div>
+      </div> -->
 
     </div>
+  </div>
   </div>
 
   <div class="container mb-4">
@@ -50,8 +65,8 @@
 
   <div class="container">
     <div class="form">
-      <div id="sendmessage">Your message has been sent. Thank you!</div>
-      <div id="errormessage"></div>
+      <!-- <div id="sendmessage">Your message has been sent. Thank you!</div>
+      <div id="errormessage"></div> -->
       <form action="" method="post" role="form" class="contactForm">
         <div class="form-row">
           <div class="form-group col-md-6">
@@ -80,4 +95,11 @@
     </div>
 
   </div>
-</section><!-- #contact -->
+
+<!-- </section>#contact -->
+
+
+<br><br><br>
+<!--================== Footer =====================-->
+<app-footer></app-footer>
+<!--====================================================================================================================-->
