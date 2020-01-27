@@ -38,6 +38,7 @@ export class OutPortfolioComponent implements OnInit {
 
   loadItems() {
     this.firestore.collection('product-solution', ref => ref
+      .orderBy('timestamp', 'desc')
       .limit(8)
     ).snapshotChanges()
       .subscribe(response => {
@@ -59,7 +60,7 @@ export class OutPortfolioComponent implements OnInit {
   }
 
   setLink(id: string) {
-    this.databaseService.setProduct_ID(id);
+    localStorage.setItem('Product_id', id);
     this.router.navigate(['/product-so-detail']);
   }
 
