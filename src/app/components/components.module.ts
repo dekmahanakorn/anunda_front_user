@@ -26,6 +26,7 @@ import { OwlModule } from 'ngx-owl-carousel';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductSoDetailComponent } from './product-so-detail/product-so-detail.component';
+import { CallToActionDetailComponent } from './call-to-action-detail/call-to-action-detail.component';
 
 @NgModule({
     imports: [
@@ -57,6 +58,7 @@ import { ProductSoDetailComponent } from './product-so-detail/product-so-detail.
         CateRfPassiveComponent,
         ProductDetailComponent,
         ProductSoDetailComponent,
+        CallToActionDetailComponent,
     ],
     exports: [ComponentsComponent]
 })
