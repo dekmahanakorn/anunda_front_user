@@ -16,18 +16,4 @@ export class DatabaseService {
   }
 
 
-
-  setProduct_ID(id: string) {
-    this.productID = id;
-  }
-  getProduct_ID() {
-    return this.productID;
-  }
-
-  setCategory_ID(id: string) {
-    this.categoryID = id;
-  }
-  getCategory_ID() {
-    return this.categoryID;
-  }
 }
