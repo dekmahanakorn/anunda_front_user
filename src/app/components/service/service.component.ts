@@ -67,7 +67,7 @@ export class ServiceComponent implements OnInit {
   }
 
   setLink(id: string) {
-    this.service.setCategory_ID(id);
+    localStorage.setItem('Category_id', id);
   }
 
 }
