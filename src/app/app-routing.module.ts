@@ -8,6 +8,7 @@ import { CateKioskComponent } from './components/cate-kiosk/cate-kiosk.component
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ProductSoDetailComponent } from './components/product-so-detail/product-so-detail.component';
 import { CallToActionDetailComponent } from './components/call-to-action-detail/call-to-action-detail.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'product-detail', component: ProductDetailComponent },
   { path: 'product-so-detail', component: ProductSoDetailComponent },
   { path: 'call-to-action-detail', component: CallToActionDetailComponent },
+  { path: 'footer', component:FooterComponent},
 ];
 
 @NgModule({
