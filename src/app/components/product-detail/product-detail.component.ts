@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { DatabaseService } from 'src/app/components/services/database.service';
+/* import getYouTubeID from 'get-youtube-id'; */
 
 @Component({
   selector: 'app-product-detail',
@@ -14,13 +15,17 @@ export class ProductDetailComponent implements OnInit {
   dataProduct_spec: any
   dataProduct_video: any
 
+  idView: string;
+  /*   player: YT.Player; */
+
   constructor(private serviceDatabase: DatabaseService,
     private firestore: AngularFirestore, ) { }
 
   ngOnInit() {
-    this.productID = this.serviceDatabase.getProduct_ID();
+    this.productID = localStorage.getItem('Product_id')
     this.getProduct();
     this.getProduct_spec();
+    /*     this.getProduct_video(); */
 
   }
 
@@ -51,12 +56,19 @@ export class ProductDetailComponent implements OnInit {
     this.firestore.collection("product-video").get().subscribe(function (query) {
       query.forEach(function (doc) {
         if (doc.data().product_id == inner.productID) {
-          inner.dataProduct_video = Object.assign({}, doc.data());
-          console.log(inner.dataProduct_video.url)
+          /*          inner.idView = doc.data().url; */
+          /*     inner.idView = getYouTubeID(doc.data().url); */
+
         }
       })
     })
   }
+
+
+  /*   savePlayer(player) {
+      this.player = player;
+      console.log('player instance', player);
+    } */
 
 
 }

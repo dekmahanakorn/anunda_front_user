@@ -20,7 +20,7 @@ export class ProductSoDetailComponent implements OnInit {
 
 
   ngOnInit() {
-    this.productID = this.serviceDatabase.getProduct_ID();
+    this.productID = localStorage.getItem('Product_id')
     this.getProduct();
     this.getProduct_spec();
   }

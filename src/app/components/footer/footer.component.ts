@@ -1,32 +1,45 @@
 import { Component, OnInit } from '@angular/core';
-import { DatabaseService } from 'src/app/components/services/database.service';
-import { Category } from 'src/app/components/model/category.model';
+import { DatabaseService } from '../services/database.service';
+import { about } from '../model/about.model';
+import { Category } from '../model/category.model';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { contact } from '../model/contact.model';
 
 @Component({
-  selector: 'app-service',
-  templateUrl: './service.component.html',
-  styleUrls: ['./service.component.css']
+  selector: 'app-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.css']
 })
-export class ServiceComponent implements OnInit {
+export class FooterComponent implements OnInit {
+
+  public about: about;
+  public aboutList: about[];
 
   listCate: Array<Category> = [];
   dataCate: any
 
+  public contactList: contact[];
+  public contact: contact;
 
-  constructor(private service: DatabaseService,
-    private router: Router,
-    private firestore: AngularFirestore) { }
+  constructor(private databaseService: DatabaseService, private router: Router,private firestore: AngularFirestore) { }
 
   ngOnInit() {
+    this.getAbout();
     this.getCategory();
-
-    /*   this.getData(); */
+    this.getContact();
   }
-  /*   link() { 
-    this.router.navigate(['/cate-iot']);
-  } */
+
+  getAbout() {
+    this.databaseService.getData('About').subscribe(actionArray => {
+      this.aboutList = actionArray.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        } as about;
+      });
+    });
+  }
 
   getCategory() {
     var inner = this;
@@ -64,6 +77,17 @@ export class ServiceComponent implements OnInit {
 
       })
     })
+  }
+
+  getContact() {
+    this.databaseService.getData('Contact').subscribe(actionArray => {
+      this.contactList = actionArray.map(item => {
+       return {
+         id: item.payload.doc.id,
+         ...item.payload.doc.data()
+       } as contact;
+     });
+   });
   }
 
   setLink(id: string) {

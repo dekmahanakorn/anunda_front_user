@@ -31,7 +31,7 @@ export class CateIotComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.categoryID = this.serviceDatabase.getCategory_ID();
+    this.categoryID = localStorage.getItem('Category_id')
     this.loadItems();
     this.getCategory();
   }
@@ -39,6 +39,7 @@ export class CateIotComponent implements OnInit {
   loadItems() {
     this.firestore.collection('product', ref => ref
       .where("category_id", "==", this.categoryID)
+      .orderBy('timestamp', 'desc')
       .limit(6)
     ).snapshotChanges()
       .subscribe(response => {
@@ -74,6 +75,7 @@ export class CateIotComponent implements OnInit {
     this.disable_prev = true;
     this.firestore.collection('product', ref => ref
       .where("category_id", "==", this.categoryID)
+      .orderBy('timestamp', 'desc')
       .startAt(this.get_prev_startAt())
       .endBefore(this.firstInResponse)
       .limit(6)
@@ -107,6 +109,7 @@ export class CateIotComponent implements OnInit {
     this.disable_next = true;
     this.firestore.collection('product', ref => ref
       .where("category_id", "==", this.categoryID)
+      .orderBy('timestamp', 'desc')
       .limit(6)
       .startAfter(this.lastInResponse)
     ).get()
@@ -172,7 +175,8 @@ export class CateIotComponent implements OnInit {
   }
 
   linkDetail(id: string) {
-    this.serviceDatabase.setProduct_ID(id);
+    /*    this.serviceDatabase.setProduct_ID(id); */
+    localStorage.setItem('Product_id', id);
     this.router.navigate(['/product-detail']);
   }
 

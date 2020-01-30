@@ -1,0 +1,88 @@
+<!--======= Header =======-->
+<header id="header">
+    <div class="container">
+        <div id="logo" class="pull-left">
+            <h1><a [routerLink]="['/index']" class="scrollto">Anunda <span>Technology</span></a></h1>
+        </div>
+        <div class="pull-right">
+            <app-topbar></app-topbar>
+        </div>
+    </div>
+</header><!-- #header -->
+<!--====================================================================================================================-->
+
+
+
+
+<section id="portfolio">
+    <div class="container-fluid table-responsive-md">
+        <table class="table table-borderless">
+            <tr>
+                <td rowspan="2">
+                    <div class="portfolio-item wow col-md-6 rounded mx-auto d-block">
+                        <img class="img-fluid" src="{{dataProfile[0].image_url}}" alt="">
+                    </div>
+                </td>
+                <td class="align-bottom" *ngIf="dataCate_micro">{{dataCate_micro.Detail}}</td>
+            </tr>
+            <tr>
+                <td><button *ngIf="dataCate_micro" [routerLink]="[dataCate_micro.link]" type="button"
+                        class="btn btn-outline-success" (click)="onClick(dataCate_micro.id)">RF &
+                        Microwave product</button></td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <div class="portfolio-item wow col-md-6 rounded mx-auto d-block">
+                        <img class="img-fluid" src="{{dataProfile[1].image_url}}" alt="">
+                    </div>
+                </td>
+                <td class="align-bottom" *ngIf="dataCate_kiosk">{{dataCate_kiosk.Detail}}</td>
+            </tr>
+            <tr>
+                <td><button *ngIf="dataCate_kiosk" [routerLink]="[dataCate_kiosk.link]" type="button"
+                        class="btn btn-outline-success" (click)="onClick(dataCate_kiosk.id)">Kiosk &
+                        Vending machine</button></td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <div class="portfolio-item wow col-md-6 rounded mx-auto d-block">
+                        <img class="img-fluid" src="{{dataProfile[2].image_url}}" alt="">
+                    </div>
+                </td>
+                <td class="align-bottom" *ngIf="dataCate_rf">{{dataCate_rf.Detail}}</td>
+            </tr>
+            <tr>
+                <td><button *ngIf="dataCate_rf" [routerLink]="[dataCate_rf.link]" type="button"
+                        class="btn btn-outline-success" (click)="onClick(dataCate_rf.id)">RF Passive
+                        product</button></td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <div class="portfolio-item wow col-md-6 rounded mx-auto d-block">
+                        <img class="img-fluid" src="{{dataProfile[3].image_url}}" alt="">
+                    </div>
+                </td>
+                <td class="align-bottom" *ngIf="dataCate_iot">{{dataCate_iot.Detail}}</td>
+            </tr>
+            <tr>
+                <td><button *ngIf="dataCate_iot" [routerLink]="[dataCate_iot.link]" type="button"
+                        class="btn btn-outline-success" (click)="onClick(dataCate_iot.id)">IoT</button></td>
+            </tr>
+
+        </table>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<br><br><br>
+<!--================== Footer =====================-->
+<app-footer></app-footer>
+<!--====================================================================================================================-->

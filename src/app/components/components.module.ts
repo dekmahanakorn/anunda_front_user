@@ -26,8 +26,12 @@ import { OwlModule } from 'ngx-owl-carousel';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductSoDetailComponent } from './product-so-detail/product-so-detail.component';
+
 import { SendMessageComponent } from './contact/send-message/send-message.component';
 import { ToastrModule } from 'ngx-toastr';
+import { CallToActionDetailComponent } from './call-to-action-detail/call-to-action-detail.component';
+import { FooterComponent } from './footer/footer.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -62,6 +66,8 @@ import { ToastrModule } from 'ngx-toastr';
     ProductDetailComponent,
     ProductSoDetailComponent,
     SendMessageComponent,
+    CallToActionDetailComponent,
+    FooterComponent
   ],
   exports: [ComponentsComponent]
 })
