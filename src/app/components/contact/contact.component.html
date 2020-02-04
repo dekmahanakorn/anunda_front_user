@@ -11,10 +11,9 @@
 </header><!-- #header -->
 <!--====================================================================================================================-->
 
-<!-- <section id="contact" class="wow fadeInUp"> -->
-  <div class="jumbotron subhead" style="background-color: #F6DDCC;">
+<section id="contact" class="wow fadeInUp">
   <div class="container">
-    <div class="span12">
+    <div class="section-header">
       <h2>Contact Us</h2>
     </div>
     <div *ngFor="let item of contactList">
@@ -22,7 +21,7 @@
       {{item.address2}}
       {{item.tel}}
 
-      <!-- <div class="row contact-info">
+      <div class="row contact-info">
 
         <div class="col-md-4">
           <div class="contact-address">
@@ -50,10 +49,9 @@
           </div>
         </div>
 
-      </div> -->
+      </div>
 
     </div>
-  </div>
   </div>
 
   <div class="container mb-4">
@@ -64,6 +62,8 @@
   </div>
 
   <app-send-message></app-send-message>
+</section><!-- #contact -->
+
 
 <!-- #contact -->
 <br><br><br>
