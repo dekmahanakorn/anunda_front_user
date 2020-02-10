@@ -2,7 +2,9 @@
 <header id="header">
     <div class="container">
         <div id="logo" class="pull-left">
-            <h1><a [routerLink]="['/index']" class="scrollto">Anunda <span>Technology</span></a></h1>
+            <h1><a [routerLink]="['/index']" (click)="gotoIndex()" class="scrollto animated rubberBand">Anunda
+                    <span>Technology</span></a>
+            </h1>
         </div>
         <div class="pull-right">
             <app-topbar></app-topbar>
@@ -26,8 +28,8 @@
                 <td class="align-bottom" *ngIf="dataCate_micro">{{dataCate_micro.Detail}}</td>
             </tr>
             <tr>
-                <td><button *ngIf="dataCate_micro" [routerLink]="[dataCate_micro.link]" type="button"
-                        class="btn btn-outline-success" (click)="onClick(dataCate_micro.id)">RF &
+                <td><button *ngIf="dataCate_micro" type="button" class="btn btn-outline-success"
+                        (click)="onClick(dataCate_micro.id)">RF &
                         Microwave product</button></td>
             </tr>
             <tr>
@@ -39,8 +41,8 @@
                 <td class="align-bottom" *ngIf="dataCate_kiosk">{{dataCate_kiosk.Detail}}</td>
             </tr>
             <tr>
-                <td><button *ngIf="dataCate_kiosk" [routerLink]="[dataCate_kiosk.link]" type="button"
-                        class="btn btn-outline-success" (click)="onClick(dataCate_kiosk.id)">Kiosk &
+                <td><button *ngIf="dataCate_kiosk" type="button" class="btn btn-outline-success"
+                        (click)="onClick(dataCate_kiosk.id)">Kiosk &
                         Vending machine</button></td>
             </tr>
             <tr>
@@ -52,8 +54,8 @@
                 <td class="align-bottom" *ngIf="dataCate_rf">{{dataCate_rf.Detail}}</td>
             </tr>
             <tr>
-                <td><button *ngIf="dataCate_rf" [routerLink]="[dataCate_rf.link]" type="button"
-                        class="btn btn-outline-success" (click)="onClick(dataCate_rf.id)">RF Passive
+                <td><button *ngIf="dataCate_rf" type="button" class="btn btn-outline-success"
+                        (click)="onClick(dataCate_rf.id)">RF Passive
                         product</button></td>
             </tr>
             <tr>
@@ -65,8 +67,8 @@
                 <td class="align-bottom" *ngIf="dataCate_iot">{{dataCate_iot.Detail}}</td>
             </tr>
             <tr>
-                <td><button *ngIf="dataCate_iot" [routerLink]="[dataCate_iot.link]" type="button"
-                        class="btn btn-outline-success" (click)="onClick(dataCate_iot.id)">IoT</button></td>
+                <td><button *ngIf="dataCate_iot" type="button" class="btn btn-outline-success"
+                        (click)="onClick(dataCate_iot.id)">IoT</button></td>
             </tr>
 
         </table>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { DatabaseService } from 'src/app/components/services/database.service';
-/* import getYouTubeID from 'get-youtube-id'; */
+
+import getYouTubeID from 'get-youtube-id';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-product-detail',
@@ -16,17 +18,23 @@ export class ProductDetailComponent implements OnInit {
   dataProduct_video: any
 
   idView: string;
-  /*   player: YT.Player; */
+  show_video: any;
+  baseUrl: string = 'https://www.youtube.com/embed/';
 
   constructor(private serviceDatabase: DatabaseService,
-    private firestore: AngularFirestore, ) { }
+    private firestore: AngularFirestore,
+    private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.productID = localStorage.getItem('Product_id')
     this.getProduct();
     this.getProduct_spec();
-    /*     this.getProduct_video(); */
+    this.getProduct_video();
 
+  }
+
+  gotoIndex() {
+    localStorage.setItem('reload_index', 'reload');
   }
 
   getProduct() {
@@ -56,19 +64,14 @@ export class ProductDetailComponent implements OnInit {
     this.firestore.collection("product-video").get().subscribe(function (query) {
       query.forEach(function (doc) {
         if (doc.data().product_id == inner.productID) {
-          /*          inner.idView = doc.data().url; */
-          /*     inner.idView = getYouTubeID(doc.data().url); */
+
+          inner.idView = getYouTubeID(doc.data().url);
 
         }
       })
+      inner.show_video = inner.sanitizer.bypassSecurityTrustResourceUrl(inner.baseUrl + inner.idView)
+
     })
   }
-
-
-  /*   savePlayer(player) {
-      this.player = player;
-      console.log('player instance', player);
-    } */
-
 
 }

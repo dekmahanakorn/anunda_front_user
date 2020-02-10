@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { DatabaseService } from 'src/app/components/services/database.service';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
-  selector: 'app-cate-rf-passive',
-  templateUrl: './cate-rf-passive.component.html',
-  styleUrls: ['./cate-rf-passive.component.css']
+  selector: 'app-category',
+  templateUrl: './category.component.html',
+  styleUrls: ['./category.component.css']
 })
-export class CateRfPassiveComponent implements OnInit {
+export class CategoryComponent implements OnInit {
 
   firstInResponse: any = [];
   tableData: any[] = [];
@@ -24,17 +25,38 @@ export class CateRfPassiveComponent implements OnInit {
   dataModel: any
   dataCate: any
   data: any
+  checkShow: boolean = false;
+  checkShow_head: boolean = false;
 
   constructor(private firestore: AngularFirestore,
     private serviceDatabase: DatabaseService,
-    private router: Router, ) {
+    private router: Router,
+    private spinner: NgxSpinnerService, ) {
 
   }
 
   ngOnInit() {
+    this.spinner_load();
+
     this.categoryID = localStorage.getItem('Category_id')
     this.loadItems();
     this.getCategory();
+  }
+
+  spinner_load() {
+    this.spinner.show();
+    document.body.style.position = 'fixed';
+
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      document.body.style.position = '';
+      this.spinner.hide();
+      this.checkShow_head = true;
+    }, 2000);
+  }
+
+  gotoIndex() {
+    localStorage.setItem('reload_index', 'reload');
   }
 
   loadItems() {
@@ -61,6 +83,7 @@ export class CateRfPassiveComponent implements OnInit {
         }
 
         console.log('tableData : ', this.tableData);
+        this.checkShow = true;
 
         //Initialize values
         this.prev_strt_at = [];
@@ -181,6 +204,5 @@ export class CateRfPassiveComponent implements OnInit {
     localStorage.setItem('Product_id', id);
     this.router.navigate(['/product-detail']);
   }
-
 
 }

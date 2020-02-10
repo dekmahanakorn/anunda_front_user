@@ -22,7 +22,7 @@ export class FooterComponent implements OnInit {
   public contactList: contact[];
   public contact: contact;
 
-  constructor(private databaseService: DatabaseService, private router: Router,private firestore: AngularFirestore) { }
+  constructor(private databaseService: DatabaseService, private router: Router, private firestore: AngularFirestore) { }
 
   ngOnInit() {
     this.getAbout();
@@ -49,28 +49,24 @@ export class FooterComponent implements OnInit {
         if (doc.data().Name == 'RF & Microwave product') {
           inner.dataCate = Object.assign({}, doc.data());
           inner.dataCate.id = doc.id;
-          inner.dataCate.link = '/cate-rf-microwave';
           inner.listCate.push(inner.dataCate);
 
         }
         if (doc.data().Name == 'IoT') {
           inner.dataCate = Object.assign({}, doc.data());
           inner.dataCate.id = doc.id;
-          inner.dataCate.link = '/cate-iot';
           inner.listCate.push(inner.dataCate);
 
         }
         if (doc.data().Name == 'Kiosk & Vending machine') {
           inner.dataCate = Object.assign({}, doc.data());
           inner.dataCate.id = doc.id;
-          inner.dataCate.link = '/cate-kiosk';
           inner.listCate.push(inner.dataCate);
 
         }
         if (doc.data().Name == 'RF Passive product') {
           inner.dataCate = Object.assign({}, doc.data());
           inner.dataCate.id = doc.id;
-          inner.dataCate.link = '/cate-rf-passive';
           inner.listCate.push(inner.dataCate);
 
         }
@@ -82,12 +78,12 @@ export class FooterComponent implements OnInit {
   getContact() {
     this.databaseService.getData('Contact').subscribe(actionArray => {
       this.contactList = actionArray.map(item => {
-       return {
-         id: item.payload.doc.id,
-         ...item.payload.doc.data()
-       } as contact;
-     });
-   });
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        } as contact;
+      });
+    });
   }
 
   setLink(id: string) {

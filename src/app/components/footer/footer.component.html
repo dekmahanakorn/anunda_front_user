@@ -1,4 +1,5 @@
-<div class="footer-wrap">
+<section id="portfolio" class="wow fadeInUp">
+  <div class="footer-wrap">
     <div class="container">
       <div class="row">
         <div class="col-md-4 col-sm-6" *ngFor="let data of aboutList">
@@ -18,17 +19,22 @@
         <div class="col-md-3 col-sm-6">
           <h3>PRODUCT</h3>
           <ul class="footer-category" *ngFor="let dataCate of listCate">
-              <li><a [routerLink]="[dataCate.link]" (click)="setLink(dataCate.id)">{{dataCate.Name}}</a></li>
+            <li><a [routerLink]="['/category']" (click)="setLink(dataCate.id)">{{dataCate.Name}}</a></li>
           </ul>
           <div class="clearfix"></div>
         </div>
         <div class="col-md-3 col-sm-6" *ngFor="let item of contactList">
-          <a [routerLink]="['/contact']"><h3>Contact</h3></a>
+          <a [routerLink]="['/contact']">
+            <h3>Contact</h3>
+          </a>
           <div class="address"><a [routerLink]="['/contact']">{{item.address1}}</a></div>
-          <div class="info"><i class="fa fa-phone" aria-hidden="true"></i> <a [routerLink]="['/contact']"> {{item.tel}}</a></div>
-          <div class="info"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a [routerLink]="['/contact']"> {{item.email}}</a></div>
+          <div class="info"><i class="fa fa-phone" aria-hidden="true"></i> <a [routerLink]="['/contact']">
+              {{item.tel}}</a></div>
+          <div class="info"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a [routerLink]="['/contact']">
+              {{item.email}}</a></div>
         </div>
       </div>
       <div class="copyright">Copyright © 2020 Anunda Technology - All Rights Reserved.</div>
     </div>
   </div>
+</section>

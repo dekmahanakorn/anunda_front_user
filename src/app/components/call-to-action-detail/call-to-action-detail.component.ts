@@ -24,7 +24,9 @@ export class CallToActionDetailComponent implements OnInit {
     this.getCategory();
   }
 
-
+  gotoIndex() {
+    localStorage.setItem('reload_index', 'reload');
+  }
 
   getProfile() {
     var inner = this;
@@ -44,25 +46,21 @@ export class CallToActionDetailComponent implements OnInit {
         if (doc.data().Name == 'RF & Microwave product') {
           inner.dataCate = Object.assign({}, doc.data());
           inner.dataCate.id = doc.id;
-          inner.dataCate.link = '/cate-rf-microwave';
           inner.dataCate_micro = inner.dataCate;
         }
         if (doc.data().Name == 'IoT') {
           inner.dataCate = Object.assign({}, doc.data());
           inner.dataCate.id = doc.id;
-          inner.dataCate.link = '/cate-iot';
           inner.dataCate_iot = inner.dataCate;
         }
         if (doc.data().Name == 'Kiosk & Vending machine') {
           inner.dataCate = Object.assign({}, doc.data());
           inner.dataCate.id = doc.id;
-          inner.dataCate.link = '/cate-kiosk';
           inner.dataCate_kiosk = inner.dataCate;
         }
         if (doc.data().Name == 'RF Passive product') {
           inner.dataCate = Object.assign({}, doc.data());
           inner.dataCate.id = doc.id;
-          inner.dataCate.link = '/cate-rf-passive';
           inner.dataCate_rf = inner.dataCate;
         }
       })
@@ -71,6 +69,7 @@ export class CallToActionDetailComponent implements OnInit {
 
   onClick(id: string) {
     localStorage.setItem('Category_id', id);
+    this.router.navigate(['/category']);
   }
 
 }

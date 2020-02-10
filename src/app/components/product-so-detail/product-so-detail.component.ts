@@ -25,6 +25,10 @@ export class ProductSoDetailComponent implements OnInit {
     this.getProduct_spec();
   }
 
+  gotoIndex() {
+    localStorage.setItem('reload_index', 'reload');
+  }
+
   getProduct() {
     var inner = this;
     this.firestore.collection("product-solution").get().subscribe(function (query) {

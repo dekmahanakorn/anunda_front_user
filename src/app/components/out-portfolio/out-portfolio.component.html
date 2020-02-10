@@ -10,14 +10,14 @@
 
       <div class="col-lg-3 col-md-4" *ngFor="let data of tableData">
         <div class="portfolio-item wow fadeInUp" *ngIf="data" (click)="setLink(data.id)">
-          <!-- <a href="{{data.image_url}}" class="portfolio-popup"> -->
+
           <img src="{{data.image_url}}" alt="">
           <div class="portfolio-overlay">
             <div class="portfolio-info">
               <h2 class="wow fadeInUp">{{data.name}}</h2>
             </div>
           </div>
-          <!-- </a> -->
+
         </div>
       </div>
 

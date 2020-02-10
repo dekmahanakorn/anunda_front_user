@@ -1,20 +1,17 @@
 <section id="intro">
 
-    <div class="intro-content">
-      <h2>Making <span>your ideas</span><br>happen!</h2>
-      <div>
+  <div class="intro-content">
+    <h2>Welcome to <span>dark side</span><br>อิอิ >.<" </h2> <div>
         <a href="#about" class="btn-get-started scrollto">Get Started</a>
         <a href="#portfolio" class="btn-projects scrollto">Our Projects</a>
-      </div>
-    </div>
-    <div id="intro-carousel" class="owl-carousel" *ngFor="let data of profileList">
-      <div class="item" style="background-image: url('..img/intro-carousel/1.jpg');"></div>
-      <div class="item" style="background-image: url('..img/intro-carousel/2.jpg');"></div>
-      <div class="item" style="background-image: url('..img/intro-carousel/3.jpg');"></div>
-      <div class="item" style="background-image: url('..img/intro-carousel/4.jpg');"></div>
-      <div class="item" style="background-image: url('..img/intro-carousel/5.jpg');"></div>
-      <!-- <div class="item" ng-style="{'background-image': 'url(\'' + data.image_url + '\')'}"></div> -->
-      <!-- <img class="" src="{{data.image_url}}" alt=""> -->
-    </div>
+  </div>
+  </div>
+  <div id="intro-carousel" class="owl-carousel">
+    <div class="item" [ngStyle]="{'background-image': img1()}"></div>
+    <div class="item" [ngStyle]="{'background-image': img2()}"></div>
+    <div class="item" [ngStyle]="{'background-image': img3()}"></div>
+    <div class="item" [ngStyle]="{'background-image': img4()}"></div>
+    <div class="item" [ngStyle]="{'background-image': img5()}"></div>
+  </div>
 
-  </section><!-- #intro -->
+</section><!-- #intro -->

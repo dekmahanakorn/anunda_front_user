@@ -1,8 +1,15 @@
+<ngx-spinner bdColor="rgba(27, 38, 49,0.8)" size="large" color="#f4696b" type="pacman">
+    <br><br><br>
+    <p style="font-size: 20px; color: white;">Loading...</p>
+</ngx-spinner>
+
 <!--======= Header =======-->
 <header id="header">
-    <div class="container">
+    <div class="container" *ngIf="checkShow_head">
         <div id="logo" class="pull-left">
-            <h1><a [routerLink]="['/index']" class="scrollto">Anunda <span>Technology</span></a></h1>
+            <h1><a [routerLink]="['/index']" (click)="gotoIndex()" class="scrollto animated rubberBand">Anunda
+                    <span>Technology</span></a>
+            </h1>
         </div>
         <div class="pull-right">
             <app-topbar></app-topbar>
@@ -11,7 +18,7 @@
 </header><!-- #header -->
 <!--====================================================================================================================-->
 
-<div class="jumbotron subhead" style="background-color: #F6DDCC;" *ngIf="dataCate">
+<div class="jumbotron subhead animated bounceIn delay-2s" style="background-color: #F6DDCC;" *ngIf="dataCate">
     <div class="container">
         <div class="row">
             <div class="span12">
@@ -26,7 +33,7 @@
 
 
 <section id="portfolio">
-    <div class="container" *ngIf="tableData">
+    <div class="container animated fadeIn delay-2s" *ngIf="checkShow">
         <div class="container-fluid">
             <div class="row no-gutters">
                 <div class="col-lg-4 col-md-6 mb-4" *ngFor="let data of tableData">
@@ -58,7 +65,7 @@
         </div>
 
         <br>
-        <div class="text-center">
+        <div class="text-center animated fadeIn delay-2s" *ngIf="checkShow">
             <button class="btn btn btn-info btn-sm float-left" (click)="prevPage()"
                 [disabled]="disable_prev || !(pagination_clicked_count>0)">Previous</button> <b>Page no:
                 {{pagination_clicked_count+1}}</b>
@@ -92,5 +99,14 @@
 
 <br><br><br>
 <!--================== Footer =====================-->
-<app-footer></app-footer>
+<footer id="footer" *ngIf="checkShow_head">
+    <div class="container animated fadeInUp">
+        <div class="copyright">
+            &copy; Copyright <strong>Anunda Technology</strong>. All Rights Reserved.
+        </div>
+        <div class="credits">
+            Anunda Technology Co.,Ltd
+        </div>
+    </div>
+</footer><!-- #footer -->
 <!--====================================================================================================================-->

@@ -4,8 +4,10 @@
 <section id="topbar" class="d-none d-lg-block">
   <div class="container clearfix">
     <div class="contact-info float-left" *ngFor="let data of contactList">
-      <i class="fa fa-envelope-o"></i> <a href="mailto:{{data.email}}">{{data.email}}</a>
-      <i class="fa fa-phone"></i> {{data.tel}}
+      <div class="animated bounceIn delay-2s"><i class="fa fa-envelope-o "></i> <a
+          href="mailto:{{data.email}}">{{data.email}}</a>
+        <i class="fa fa-phone"></i> {{data.tel}}
+      </div>
     </div>
     <div class="social-links float-right">
       <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
