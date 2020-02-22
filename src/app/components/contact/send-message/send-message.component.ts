@@ -28,7 +28,6 @@ export class SendMessageComponent implements OnInit {
   }
 
   getFormData() {
-    this.toastr.success('Hello world!');
 
     this.sendMessage = {
       username: this.sendMsg.controls.username.value,
