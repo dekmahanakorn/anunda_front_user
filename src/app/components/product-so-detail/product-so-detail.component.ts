@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { DatabaseService } from 'src/app/components/services/database.service';
 
+import getYouTubeID from 'get-youtube-id';
+import { DomSanitizer } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-product-so-detail',
   templateUrl: './product-so-detail.component.html',
@@ -14,15 +17,21 @@ export class ProductSoDetailComponent implements OnInit {
   dataProduct_spec: any
   dataProduct_video: any
 
+  idView: string;
+  show_video: any;
+  baseUrl: string = 'https://www.youtube.com/embed/';
+
 
   constructor(private serviceDatabase: DatabaseService,
-    private firestore: AngularFirestore, ) { }
+    private firestore: AngularFirestore, private sanitizer: DomSanitizer) { }
 
 
   ngOnInit() {
     this.productID = localStorage.getItem('Product_id')
     this.getProduct();
     this.getProduct_spec();
+    this.getProduct_video();
+
   }
 
   gotoIndex() {
@@ -56,10 +65,13 @@ export class ProductSoDetailComponent implements OnInit {
     this.firestore.collection("product-solution-video").get().subscribe(function (query) {
       query.forEach(function (doc) {
         if (doc.data().product_id == inner.productID) {
-          inner.dataProduct_video = Object.assign({}, doc.data());
-          console.log(inner.dataProduct_video.url)
+
+          inner.idView = getYouTubeID(doc.data().url);
+
         }
       })
+      inner.show_video = inner.sanitizer.bypassSecurityTrustResourceUrl(inner.baseUrl + inner.idView)
+
     })
   }
 
