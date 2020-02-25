@@ -18,22 +18,39 @@
 </header><!-- #header -->
 <!--====================================================================================================================-->
 
-<div class="jumbotron subhead animated bounceIn delay-2s" style="background-color: #F6DDCC;">
+<div class="jumbotron subhead animated bounceIn delay-2s" style="background-color: #99cc00;">
     <div class="container">
         <div class="row">
             <div class="span12">
-                <h2>Product Solutions</h2>
-                <p style="font-size: 110%;">
-                    wait
+                <h2 style="color: white">Product Solutions</h2>
+                <p style="font-size: 110%; color: white">
+                    {{queryRef.Detail}}
                 </p>
             </div>
         </div>
     </div>
 </div>
 
-
 <section id="portfolio">
     <div class="container animated fadeIn delay-2s" *ngIf="checkShow">
+
+        <div class="col">
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <label class="btn button5 active" (click)="clickShow_data('RF & Microwave product')">
+                    <input type="radio" name="options" id="option1" autocomplete="off">RF & Microwave product
+                </label>
+                <label class="btn button5" (click)="clickShow_data('RF Passive product')">
+                    <input type="radio" name="options" id="option2" autocomplete="off">RF Passive product
+                </label>
+                <label class="btn button5" (click)="clickShow_data('Kiosk & Vending machine')">
+                    <input type="radio" name="options" id="option3" autocomplete="off">Kiosk & Vending machine
+                </label>
+                <label class="btn button5" (click)="clickShow_data('IoT')">
+                    <input type="radio" name="options" id="option4" autocomplete="off">Iot
+                </label>
+            </div>
+        </div><br><br>
+
         <div class="container-fluid">
             <div class="row no-gutters">
                 <div class="col-lg-4 col-md-6 mb-4" *ngFor="let data of tableData">

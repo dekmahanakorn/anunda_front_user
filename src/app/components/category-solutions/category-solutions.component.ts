@@ -28,6 +28,9 @@ export class CategorySolutionsComponent implements OnInit {
   checkShow: boolean = false;
   checkShow_head: boolean = false;
 
+  queryRef: any;
+  cateRandom: any[] = [];
+
   constructor(private firestore: AngularFirestore,
     private serviceDatabase: DatabaseService,
     private router: Router,
@@ -38,6 +41,7 @@ export class CategorySolutionsComponent implements OnInit {
   ngOnInit() {
     this.spinner_load();
     this.loadItems();
+    this.getCategory();
   }
 
   spinner_load() {
@@ -178,9 +182,19 @@ export class CategorySolutionsComponent implements OnInit {
     return this.prev_strt_at[this.pagination_clicked_count - 1];
   }
 
-
   modal(data: any) {
     this.dataModel = data;
+  }
+
+  getCategory() {
+    var inner = this;
+    this.firestore.collection("category").get().subscribe(function (query) {
+      query.forEach(function (doc) {
+        inner.cateRandom.push(Object.assign({}, doc.data()));
+      })
+
+      inner.queryRef = inner.cateRandom[Math.floor(Math.random() * inner.cateRandom.length)];
+    })
   }
 
 }

@@ -25,13 +25,13 @@ export class CallToActionComponent implements OnInit {
     this.getCategory();
   }
 
-/*   randomArray() {
-    let myShows = ['Bones', 'Psych', 'Big Bang Theory', 'Mad Men',
-      'Breaking Bad', 'Modern Family', 'Game of Thrones', 'Dexter'];
-
-    let show = myShows[Math.floor(Math.random() * myShows.length)];
-    console.log(show);
-  } */
+  /*   randomArray() {
+      let myShows = ['Bones', 'Psych', 'Big Bang Theory', 'Mad Men',
+        'Breaking Bad', 'Modern Family', 'Game of Thrones', 'Dexter'];
+  
+      let show = myShows[Math.floor(Math.random() * myShows.length)];
+      console.log(show);
+    } */
 
   getCategory() {
     var inner = this;
