@@ -71,5 +71,8 @@ export class CallToActionDetailComponent implements OnInit {
     localStorage.setItem('Category_id', id);
     this.router.navigate(['/category']);
   }
+  onClick_solutions() {
+    this.router.navigate(['/category-solutions']);
+  }
 
 }

@@ -7,6 +7,7 @@ import { CallToActionDetailComponent } from './components/call-to-action-detail/
 import { FooterComponent } from './components/footer/footer.component';
 import { CategoryComponent } from './components/category/category.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { CategorySolutionsComponent } from './components/category-solutions/category-solutions.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'footer', component: FooterComponent },
   { path: 'category', component: CategoryComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'category-solutions', component: CategorySolutionsComponent },
 ];
 
 @NgModule({

@@ -29,6 +29,7 @@ import { CallToActionDetailComponent } from './call-to-action-detail/call-to-act
 import { FooterComponent } from './footer/footer.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { CategoryComponent } from './category/category.component';
+import { CategorySolutionsComponent } from './category-solutions/category-solutions.component';
 
 @NgModule({
   imports: [
@@ -63,7 +64,8 @@ import { CategoryComponent } from './category/category.component';
     SendMessageComponent,
     CallToActionDetailComponent,
     FooterComponent,
-    CategoryComponent
+    CategoryComponent,
+    CategorySolutionsComponent
   ],
   exports: [ComponentsComponent]
 })

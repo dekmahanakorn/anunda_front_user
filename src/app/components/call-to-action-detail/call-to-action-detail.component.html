@@ -70,7 +70,18 @@
                 <td><button *ngIf="dataCate_iot" type="button" class="btn btn-outline-success"
                         (click)="onClick(dataCate_iot.id)">IoT</button></td>
             </tr>
-
+            <tr>
+                <td rowspan="2">
+                    <div class="portfolio-item wow col-md-6 rounded mx-auto d-block">
+                        <img class="img-fluid" src="{{dataProfile[4].image_url}}" alt="">
+                    </div>
+                </td>
+                <td class="align-bottom" *ngIf="dataCate_iot">{{dataCate_iot.Detail}}</td>
+            </tr>
+            <tr>
+                <td><button *ngIf="dataCate_iot" type="button" class="btn btn-outline-success"
+                        (click)="onClick_solutions()">Product solutions</button></td>
+            </tr>
         </table>
     </div>
 </section>
