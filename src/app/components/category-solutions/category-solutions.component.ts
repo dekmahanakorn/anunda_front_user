@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { DatabaseService } from 'src/app/components/services/database.service';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-category-solutions',
@@ -31,9 +32,13 @@ export class CategorySolutionsComponent implements OnInit {
   queryRef: any;
   cateRandom: any[] = [];
 
+  // this is id : RF & Microwave product
+  cateQuery: string = "FBeqdi6Y1nXaplKrJHKz";
+
   constructor(private firestore: AngularFirestore,
     private serviceDatabase: DatabaseService,
     private router: Router,
+    private toastr: ToastrService,
     private spinner: NgxSpinnerService, ) {
 
   }
@@ -42,6 +47,7 @@ export class CategorySolutionsComponent implements OnInit {
     this.spinner_load();
     this.loadItems();
     this.getCategory();
+    console.log(this.cateQuery);
   }
 
   spinner_load() {
@@ -58,15 +64,29 @@ export class CategorySolutionsComponent implements OnInit {
   gotoIndex() {
     localStorage.setItem('reload_index', 'reload');
   }
+  clickShow_data(data: string) {
+    var inner = this;
+    this.firestore.collection("category").get().subscribe(function (query) {
+      query.forEach(function (doc) {
+        if (doc.data().Name == data) {
+          inner.cateQuery = doc.id;
+          inner.loadItems();
+        }
+      })
+    })
+  }
 
   loadItems() {
     this.firestore.collection('product-solution', ref => ref
+      .where("category_id", "==", this.cateQuery)
       .orderBy('timestamp', 'desc')
       .limit(6)
     ).snapshotChanges()
       .subscribe(response => {
         if (!response.length) {
-          console.log("No Data Available");
+          this.toastr.error('No Data Available');
+          this.tableData = [];
+          this.checkShow = false;
           return false;
         }
 
@@ -99,6 +119,7 @@ export class CategorySolutionsComponent implements OnInit {
   prevPage() {
     this.disable_prev = true;
     this.firestore.collection('product-solution', ref => ref
+      .where("category_id", "==", this.cateQuery)
       .orderBy('timestamp', 'desc')
       .startAt(this.get_prev_startAt())
       .endBefore(this.firstInResponse)
@@ -132,6 +153,7 @@ export class CategorySolutionsComponent implements OnInit {
   nextPage() {
     this.disable_next = true;
     this.firestore.collection('product-solution', ref => ref
+      .where("category_id", "==", this.cateQuery)
       .orderBy('timestamp', 'desc')
       .limit(6)
       .startAfter(this.lastInResponse)
@@ -195,6 +217,11 @@ export class CategorySolutionsComponent implements OnInit {
 
       inner.queryRef = inner.cateRandom[Math.floor(Math.random() * inner.cateRandom.length)];
     })
+  }
+
+  linkDetail(id: string) {
+    localStorage.setItem('Product_id', id);
+    this.router.navigate(['/product-so-detail']);
   }
 
 }
