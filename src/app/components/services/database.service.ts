@@ -30,6 +30,6 @@ export class DatabaseService {
   }
 
   setSendMessage(sendMessageModel: SendMessageModel) {
-    this.firestore.collection('message').add(sendMessageModel).then( ref => ref.id);
+    this.firestore.collection('/message').add(sendMessageModel).then( ref => ref.id);
   }
 }

@@ -11,9 +11,12 @@ import { ToastrService } from 'ngx-toastr';
 export class SendMessageComponent implements OnInit {
   private sendMsg: FormGroup;
   private sendMessage: SendMessageModel = {};
+  public mesError:string =null;
   constructor(private formBuilder: FormBuilder,
     private DbService: DatabaseService,
     private toastr: ToastrService) {
+
+
 
     this.sendMsg = this.formBuilder.group({
       username: [null, [Validators.required]],
@@ -28,8 +31,8 @@ export class SendMessageComponent implements OnInit {
   }
 
   getFormData() {
-    this.toastr.success('Hello world!');
 
+    this.mesError = null;
     this.sendMessage = {
       username: this.sendMsg.controls.username.value,
       email: this.sendMsg.controls.email.value,
@@ -40,7 +43,7 @@ export class SendMessageComponent implements OnInit {
     console.log(this.sendMessage);
     // this.sendMsg.valid
     if (this.sendMsg.valid) {
-      alert('Done');
+
       this.DbService.setSendMessage(this.sendMessage);
       this.sendMsg.controls.username.setValue(undefined);
       this.sendMsg.controls.email.setValue(undefined);
@@ -48,7 +51,9 @@ export class SendMessageComponent implements OnInit {
       this.sendMsg.controls.message.setValue(undefined);
       this.sendMsg.controls.dataTime.setValue(undefined);
       this.sendMessage = null;
-      location.reload();
+    }else{
+      console.log('this.sendMessage- - - else');
+      this.mesError = 'Data Invalid not required';
     }
 
 
