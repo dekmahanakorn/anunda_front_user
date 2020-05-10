@@ -1,9 +1,9 @@
 <!--======= Header =======-->
 <header id="header">
-  <div class="container animated fadeIn">
+  <div class="container">
     <div id="logo" class="pull-left">
-      <h1><a [routerLink]="['/index']" (click)="gotoIndex()" class="scrollto">Anunda
-          <span>Technology</span></a></h1>
+      <h2><a [routerLink]="['/index']" (click)="gotoIndex()" class="scrollto">Anunda
+          <span>Technology</span></a></h2>
     </div>
     <div class="pull-right">
       <app-topbar></app-topbar>
@@ -64,7 +64,7 @@
       <h4 class="animated fadeIn" style="color: black; font-weight: bold;">{{dataProduct.name}}</h4><br>
       <div class="row">
 
-        <div class="animated bounceIn span8 col-md-6">
+        <div class="span8 col-md-6">
           <img class="img-fluid " src="{{dataProduct.image_url}}" alt="" /><br><br>
         </div>
 
@@ -147,17 +147,4 @@
   </div>
 </div>
 
-
-
-<!--================== Footer =====================-->
-<footer id="footer" *ngIf="dataProduct">
-  <div class="container animated bounceIn">
-    <div class="copyright">
-      &copy; Copyright <strong>Anunda Technology</strong>. All Rights Reserved.
-    </div>
-    <div class="credits">
-      Anunda Technology Co.,Ltd
-    </div>
-  </div>
-</footer><!-- #footer -->
-<!--====================================================================================================================-->
+<app-footer></app-footer>

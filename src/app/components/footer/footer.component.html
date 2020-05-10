@@ -1,4 +1,4 @@
-<section id="portfolio" class="wow fadeInUp">
+<section id="portfolio">
   <div class="footer-wrap">
     <div class="container">
       <div class="row">
@@ -24,14 +24,10 @@
           <div class="clearfix"></div>
         </div>
         <div class="col-md-3 col-sm-6" *ngFor="let item of contactList">
-          <a [routerLink]="['/contact']">
-            <h3>Contact</h3>
-          </a>
-          <div class="address"><a [routerLink]="['/contact']">{{item.address1}}</a></div>
-          <div class="info"><i class="fa fa-phone" aria-hidden="true"></i> <a [routerLink]="['/contact']">
-              {{item.tel}}</a></div>
-          <div class="info"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a [routerLink]="['/contact']">
-              {{item.email}}</a></div>
+          <h3>Contact</h3>
+          <div class="address">{{item.address1}}</div>
+          <div class="address">{{item.tel}}</div>
+          <div class="address">{{item.email}}</div>
         </div>
       </div>
       <div class="copyright">Copyright © 2020 Anunda Technology - All Rights Reserved.</div>

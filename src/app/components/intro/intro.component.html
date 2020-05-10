@@ -1,17 +1,26 @@
 <section id="intro">
 
   <div class="intro-content">
-    <h2>Welcome to <span>Anunda</span></h2> <div>
-        <a href="#about" class="btn-get-started scrollto">Get Started</a>
-        <a href="#portfolio" class="btn-projects scrollto">Our Projects</a>
+    <h2>Welcome to <span>Anunda</span></h2>
+    <div>
+      <a href="#portfolio" class="btn-projects scrollto">Our Projects</a>
+    </div>
   </div>
-  </div>
-  <div id="intro-carousel" class="owl-carousel">
+  <!-- <div id="intro-carousel" class="owl-carousel">
     <div class="item" [ngStyle]="{'background-image': img1()}"></div>
     <div class="item" [ngStyle]="{'background-image': img2()}"></div>
     <div class="item" [ngStyle]="{'background-image': img3()}"></div>
     <div class="item" [ngStyle]="{'background-image': img4()}"></div>
     <div class="item" [ngStyle]="{'background-image': img5()}"></div>
+  </div> -->
+
+  <div>
+    <ngb-carousel>
+      <ng-template ngbSlide *ngFor="let data of dataProfile;let i = index" id="slideId-{{i+1}}">
+        <img id="intro_new" class="img-fluid" [src]="data.image_url">
+      </ng-template>
+    </ngb-carousel>
   </div>
 
-</section><!-- #intro -->
+
+</section>

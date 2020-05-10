@@ -5,11 +5,11 @@
 
 <!--======= Header =======-->
 <header id="header">
-    <div class="container  animated fadeIn" *ngIf="checkShow_head">
+    <div class="container" *ngIf="checkShow_head">
         <div id="logo" class="pull-left">
-            <h1><a [routerLink]="['/index']" (click)="gotoIndex()" class="scrollto">Anunda
+            <h2><a [routerLink]="['/index']" (click)="gotoIndex()" class="scrollto">Anunda
                     <span>Technology</span></a>
-            </h1>
+            </h2>
         </div>
         <div class="pull-right">
             <app-topbar></app-topbar>
@@ -18,7 +18,7 @@
 </header><!-- #header -->
 <!--====================================================================================================================-->
 
-<div class="jumbotron subhead animated bounceIn delay-2s" style="background-color: #F6DDCC;" *ngIf="dataCate">
+<div class="jumbotron subhead" style="background-color: #F6DDCC;" *ngIf="dataCate">
     <div class="container">
         <div class="row">
             <div class="span12">
@@ -33,7 +33,7 @@
 
 
 <section id="portfolio">
-    <div class="container animated fadeIn delay-2s" *ngIf="checkShow">
+    <div class="container" *ngIf="checkShow">
         <div class="container-fluid">
             <div class="row no-gutters">
                 <div class="col-lg-4 col-md-6 mb-4" *ngFor="let data of tableData">
@@ -95,18 +95,4 @@
 </div>
 
 
-
-
-<br><br><br>
-<!--================== Footer =====================-->
-<footer id="footer" *ngIf="checkShow_head">
-    <div class="container animated fadeInUp">
-        <div class="copyright">
-            &copy; Copyright <strong>Anunda Technology</strong>. All Rights Reserved.
-        </div>
-        <div class="credits">
-            Anunda Technology Co.,Ltd
-        </div>
-    </div>
-</footer><!-- #footer -->
-<!--====================================================================================================================-->
+<app-footer></app-footer>
