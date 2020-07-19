@@ -58,6 +58,18 @@
     </table>
   </div> -->
 
+  <div class="container">
+    <div class="span12">
+        <div class="row">
+            <a [routerLink]="['/index']" style="font-size: 110%;">Home</a>
+            <a style="font-size: 110%;">&ensp;/&ensp;</a>
+            <a [routerLink]="['/category-solutions']" style="font-size: 110%;">Product Solution</a>
+            <a style="font-size: 110%;">&ensp;/&ensp;</a>
+            <a style="font-size: 110%;color: slategrey;">{{dataProduct.name}}</a>
+        </div>
+    </div>
+  </div><br>
+
 
 <div class="container" *ngIf="dataProduct">
     <div class="row">

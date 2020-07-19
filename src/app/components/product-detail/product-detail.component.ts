@@ -14,6 +14,7 @@ export class ProductDetailComponent implements OnInit {
 
   productID: string
   dataProduct: any
+  dataCategory: any
   dataProduct_spec: any
   dataProduct_video: any
 
@@ -30,11 +31,22 @@ export class ProductDetailComponent implements OnInit {
     this.getProduct();
     this.getProduct_spec();
     this.getProduct_video();
-
+    this.getCategory();
   }
 
   gotoIndex() {
     localStorage.setItem('reload_index', 'reload');
+  }
+
+  getCategory() {
+    var inner = this;
+    this.firestore.collection("category").get().subscribe(function (query) {
+      query.forEach(function (doc) {
+        if (doc.id == inner.dataProduct.category_id) {
+          inner.dataCategory = Object.assign({}, doc.data());
+        }
+      })
+    })
   }
 
   getProduct() {

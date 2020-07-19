@@ -11,7 +11,7 @@
   </div>
 </header><!-- #header -->
 <!--====================================================================================================================-->
-<br><br>
+<br>
 <!-- <br><br><br>
 <div class="container">
   <table class="table">
@@ -57,6 +57,17 @@
   </table>
 </div> -->
 
+<div class="container">
+  <div class="span12">
+      <div class="row">
+          <a [routerLink]="['/index']" style="font-size: 110%;">Home</a>
+          <a style="font-size: 110%;">&ensp;/&ensp;</a>
+          <a [routerLink]="['/category']" style="font-size: 110%;">{{dataCategory.Name}}</a>
+          <a style="font-size: 110%;">&ensp;/&ensp;</a>
+          <a style="font-size: 110%;color: slategrey;">{{dataProduct.name}}</a>
+      </div>
+  </div>
+</div><br>
 
 <div class="container" *ngIf="dataProduct">
   <div class="row">
