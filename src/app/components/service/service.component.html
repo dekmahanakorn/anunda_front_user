@@ -21,7 +21,7 @@
     </div> -->
     <div *ngFor="let dataCate of listCate">
       <div class="col-lg-12">
-        <div class="box wow fadeInRight" (click)="setLink(dataCate.id)">
+        <div class="box wow" data-aos="fade-left"  data-aos-duration="1000" (click)="setLink(dataCate.id)">
           <div class="icon"><i class="fa fa-bar-chart"></i></div>
           <h4 class="title bounce"><a>{{dataCate.Name}}</a></h4>
           <p class="description">{{dataCate.Detail}}</p>

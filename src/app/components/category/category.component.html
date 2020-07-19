@@ -1,4 +1,4 @@
-<ngx-spinner bdColor="rgba(27, 38, 49,0.8)" size="large" color="#f4696b" type="pacman">
+<ngx-spinner bdColor="rgba(27, 38, 49)" size="large" color="#f4696b" type="pacman">
     <br><br><br>
     <p style="font-size: 20px; color: white;">Loading...</p>
 </ngx-spinner>
@@ -31,7 +31,7 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container" *ngIf="checkShow_head">
     <div class="span12">
         <div class="row">
             <a [routerLink]="['/index']" style="font-size: 110%;">Home</a>
@@ -104,5 +104,6 @@
     </div>
 </div>
 
-
-<app-footer></app-footer>
+<div *ngIf="checkShow_head">
+    <app-footer></app-footer>
+</div>

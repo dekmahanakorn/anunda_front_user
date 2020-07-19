@@ -1,20 +1,20 @@
-<section id="portfolio" class="wow fadeInUp">
+<section id="portfolio" class="wow">
   <div class="container">
     <div class="section-header">
       <h2>Solutions</h2>
     </div>
   </div>
 
-  <div class="container-fluid">
+  <div class="container-fluid" data-aos="fade-up">
     <div class="row no-gutters">
 
       <div class="col-lg-3 col-md-4" *ngFor="let data of tableData">
-        <div class="portfolio-item wow fadeInUp" *ngIf="data" (click)="setLink(data.id)">
+        <div class="portfolio-item wow"  *ngIf="data" data-aos="fade-up" data-aos-duration="2000" (click)="setLink(data.id)">
 
           <img src="{{data.image_url}}" alt="">
           <div class="portfolio-overlay">
             <div class="portfolio-info">
-              <h2 class="wow fadeInUp">{{data.name}}</h2>
+              <h2 class="wow" data-aos="fade-up" data-aos-duration="2000">{{data.name}}</h2>
             </div>
           </div>
 

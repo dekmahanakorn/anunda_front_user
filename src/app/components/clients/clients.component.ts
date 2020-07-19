@@ -3,6 +3,9 @@ import { Partner } from '../model/partner.model';
 import { DatabaseService } from '../services/database.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+
 @Component({
   selector: 'app-clients',
   templateUrl: './clients.component.html',
@@ -47,6 +50,7 @@ export class ClientsComponent implements OnInit {
   constructor(private databaseService: DatabaseService) { }
 
   ngOnInit() {
+    AOS.init();
     this.getData();
   }
 

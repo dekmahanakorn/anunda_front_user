@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { DatabaseService } from '../services/database.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+
 @Component({
   selector: 'app-out-portfolio',
   templateUrl: './out-portfolio.component.html',
@@ -23,6 +26,7 @@ export class OutPortfolioComponent implements OnInit {
 
   ngOnInit() {
     /*     this.getProductOwner(); */
+    AOS.init();
     this.loadItems();
   }
   /*  getProductOwner() {

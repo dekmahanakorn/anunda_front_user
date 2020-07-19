@@ -4,6 +4,9 @@ import { Category } from 'src/app/components/model/category.model';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+
 @Component({
   selector: 'app-service',
   templateUrl: './service.component.html',
@@ -20,6 +23,7 @@ export class ServiceComponent implements OnInit {
     private firestore: AngularFirestore) { }
 
   ngOnInit() {
+    AOS.init();
     this.getCategory();
 
     /*   this.getData(); */

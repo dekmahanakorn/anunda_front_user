@@ -15,8 +15,8 @@ export class ComponentsComponent implements OnInit {
 
   ngOnInit() {
     this.i = localStorage.getItem('reload_index')
-    this.reload();
-    this.spinner_load();
+  /*   this.reload();
+    this.spinner_load(); */
 
 
   }

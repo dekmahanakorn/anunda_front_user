@@ -3,6 +3,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { DatabaseService } from 'src/app/components/services/database.service';
 import { Router } from '@angular/router';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+
 @Component({
   selector: 'app-call-to-action',
   templateUrl: './call-to-action.component.html',
@@ -22,6 +25,7 @@ export class CallToActionComponent implements OnInit {
   }
 
   ngOnInit() {
+    AOS.init();
     this.getCategory();
   }
 
